@@ -35,9 +35,9 @@ module "eks" {
   enable_cluster_creator_admin_permissions = true
 
   eks_managed_node_groups = {
-    mg_5 = {
+    m7i_xlarge = {
       node_group_name = "managed-ondemand"
-      instance_types  = ["m4.large"]
+      instance_types  = ["m7i.xlarge"]
 
       create_security_group = false
 
@@ -48,8 +48,7 @@ module "eks" {
 
       # Launch template configuration
       create_launch_template = true              # false will use the default launch template
-      launch_template_os     = "amazonlinux2eks" # amazonlinux2eks or bottlerocket
-
+      launch_template_os     = "al2023"          # Use AL2023 for Graviton instances
       labels = {
         intent = "control-apps"
       }
@@ -64,7 +63,7 @@ module "eks" {
     #     min_size     = 0
     #     # Launch template configuration
     #     create_launch_template = true              # false will use the default launch template
-    #     launch_template_os     = "amazonlinux2eks" # amazonlinux2eks or bottlerocket
+    #     launch_template_os     = "al2023"   
     #     labels = {
     #     "Environment" = "test"
     #     GithubRepo  = "terraform-aws-eks"
