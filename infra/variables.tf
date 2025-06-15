@@ -7,7 +7,7 @@ variable "dockerhub_username" {
   description = "Docker Hub username"
   type        = string
   sensitive   = true
-  default     = "shridharpatil01"
+  default     = ""
 }
 
 variable "dockerhub_password" {
